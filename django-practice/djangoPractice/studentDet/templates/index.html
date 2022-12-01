@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1> This is home page</h1>
+    <form method = "post">
+        
+        <table>
+        {{forms.as_table}}
+        </table>
+        <input type="submit" value="submit">
+        {% csrf_token %}
+    </form>
+
+    <h1>This is Data</h1>
+        <table border="1">
+            <thead>
+                <th>Name</th>
+                <th>Class</th>
+                <th>DOB</th>
+                <th>Age</th>
+                <th>Action</th>
+            </thead>
+           
+                {% for stu in req%}
+            <tr>
+                <td> {{stu.name}}</td>
+                <td> {{stu.class_name}}</td>
+                <td> {{stu.date_of_birth}}</td>
+                <td> {{stu.age}}</td>
+                <td>
+                    <a href="{% url 'updatedata' stu.id %}" class="btn btn-warning"> <button>Edit</button> </a>
+                    <form action="{% url 'deletedata' stu.id %}" method = 'post'><button>Delete</button> {% csrf_token %}</form></td>
+            </tr>
+                {% endfor%}
+            
+        </table>
+        
+   
+
+    
+</body>
+</html>

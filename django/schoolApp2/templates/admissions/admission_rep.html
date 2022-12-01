@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Admission</title>
+</head>
+<body>
+    <h1>This is admission report section of academic year 2022-23</h1>
+    <h2>Here you will get all admission details</h2>
+    <table border="1">
+        <tr>
+            <th>Student Name</th>
+            <th>Father Name</th>
+            <th>Class</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+        </tr> 
+        
+    
+    {% for student in allstudents %}
+    <tr>
+        <td>{{student.name}}</td>
+        <td>{{student.fathername}}</td>
+        <td>{{student.classname}}</td>
+        <td>{{student.address}}</td>
+        <td>{{student.dateofbirth}}</td>
+    
+    </tr>
+    {% endfor %}
+</table>
+    
+    <a href="http://127.0.0.1:8000/"><button class="btn btn-primary">Back</button></a>
+</body>
+</html>
